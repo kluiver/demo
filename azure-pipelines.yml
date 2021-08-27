@@ -3,5 +3,6 @@ resources:
     - repository: azure-templates
       type: git
       name: azure-templates
+
 steps:
   - template: master-template.yml@azure-templates
