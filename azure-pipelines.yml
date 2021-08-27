@@ -4,5 +4,6 @@ resources:
       type: git
       name: azure-templates
 
+
 extends:
   template: ../azure-templates/master-template.yml
