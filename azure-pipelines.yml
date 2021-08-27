@@ -4,5 +4,6 @@ resources:
       type: git
       name: azure-test
 
+
 steps:
   - template: master-template.yml@azure-templates
