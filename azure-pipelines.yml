@@ -2,7 +2,7 @@ resources:
   repositories:
     - repository: azure-templates
       type: git
-      name: kluiver/azure-templates
+      name: azure-test
 
 
 steps:
