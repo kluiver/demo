@@ -1,2 +1,8 @@
+resources:
+  repositories:
+    - repository: azure-templates
+      type: git
+      name: azure-templates
+
 extends:
   template: ../azure-templates/master-template.yml
