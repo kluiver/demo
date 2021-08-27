@@ -1,9 +1,11 @@
-resources:
-  repositories:
-    - repository: azure-templates
-      type: git
-      name: azure-test
-
-
 steps:
-  - template: master-template.yml@azure-templates
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: false
+    testResultsFiles: '**/TEST-*.xml'
+    goals: 'package'
