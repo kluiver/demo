@@ -4,5 +4,6 @@ resources:
       type: git
       name: kluiver/azure-templates
 
+
 steps:
   - template: master-template.yml@azure-templates
