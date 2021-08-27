@@ -1,9 +1,9 @@
 resources:
   repositories:
-    - repository: azure-templates
+    - repository: kluiver/azure-templates
       type: git
       name: azure-templates
 
 
 extends:
-  template: ../azure-templates/master-template.yml
+  template: azure-templates/master-template.yml
