@@ -1,7 +1,7 @@
 resources:
   repositories:
     - repository: master-templates
-      type: git
+      type: github
       name: kluiver/master-templates
 
 steps:
