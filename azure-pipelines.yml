@@ -1,8 +1,25 @@
-resources:
-  repositories:
-    - repository: master-templates
-      type: github
-      name: kluiver/master-templates
+pool:
+  vmImage: ubuntu-latest
 
-steps:
-  - template: master-template.yml@master-templates
+  steps:
+    - checkout: self
+      clean: true
+    - task: Maven@3
+      inputs:
+        mavenPomFile: pom.xml
+        mavenOptions: -Xmx3072m
+        javaHomeOption: JDKVersion
+        jdkVersionOption: '1.11'
+        jdkArchitectureOption: x64
+        publishJUnitResults: false
+        goals: clean package
+    - task: CopyFiles@2
+      displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+      inputs:
+        SourceFolder: $(system.defaultworkingdirectory)
+        Contents: '**'
+        targetFolder: $(build.artifactstagingdirectory)
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      inputs:
+        PathtoPublish: $(build.artifactstagingdirectory)
